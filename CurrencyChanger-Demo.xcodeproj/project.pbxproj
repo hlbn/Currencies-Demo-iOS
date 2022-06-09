@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */; };
-		E4C749E1285221A600164628 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749E0285221A600164628 /* ContentView.swift */; };
 		E4C749E3285221A700164628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E2285221A700164628 /* Assets.xcassets */; };
 		E4C749E6285221A700164628 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E5285221A700164628 /* Preview Assets.xcassets */; };
+		E4C749F42852284100164628 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F32852284100164628 /* ProductListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4C749DB285221A600164628 /* CurrencyChanger-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CurrencyChanger-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyChanger_DemoApp.swift; sourceTree = "<group>"; };
-		E4C749E0285221A600164628 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4C749E2285221A700164628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C749E5285221A700164628 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4C749F32852284100164628 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +51,10 @@
 		E4C749DD285221A600164628 /* CurrencyChanger-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */,
-				E4C749E0285221A600164628 /* ContentView.swift */,
+				E4C749F0285227D700164628 /* Models */,
+				E4C749EF2852276F00164628 /* Services */,
+				E4C749EE2852276600164628 /* ViewModels */,
+				E4C749EC285223E900164628 /* Views */,
 				E4C749E2285221A700164628 /* Assets.xcassets */,
 				E4C749E4285221A700164628 /* Preview Content */,
 			);
@@ -65,6 +67,36 @@
 				E4C749E5285221A700164628 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4C749EC285223E900164628 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4C749F32852284100164628 /* ProductListView.swift */,
+				E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E4C749EE2852276600164628 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E4C749EF2852276F00164628 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E4C749F0285227D700164628 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4C749E1285221A600164628 /* ContentView.swift in Sources */,
+				E4C749F42852284100164628 /* ProductListView.swift in Sources */,
 				E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

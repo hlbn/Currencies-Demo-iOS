@@ -7,10 +7,15 @@
 
 import Foundation
 
+struct Category: Codable, Hashable, Identifiable {
+    var id: String
+    var name: String
+    var products: [Products]
+}
+
 struct Products: Codable, Hashable, Identifiable {
     var id: String
     var name: String
-    var price: Float
+    var price: Double
     var unit: String
-    
 }

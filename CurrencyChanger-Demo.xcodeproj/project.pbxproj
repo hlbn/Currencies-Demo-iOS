@@ -11,6 +11,8 @@
 		E4C749E3285221A700164628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E2285221A700164628 /* Assets.xcassets */; };
 		E4C749E6285221A700164628 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E5285221A700164628 /* Preview Assets.xcassets */; };
 		E4C749F42852284100164628 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F32852284100164628 /* ProductListView.swift */; };
+		E4C749F62852357F00164628 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F52852357F00164628 /* ProductList.swift */; };
+		E4C749F8285237A700164628 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F7285237A700164628 /* Products.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E4C749E2285221A700164628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C749E5285221A700164628 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4C749F32852284100164628 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		E4C749F52852357F00164628 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		E4C749F7285237A700164628 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		E4C749EF2852276F00164628 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E4C749F52852357F00164628 /* ProductList.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 		E4C749F0285227D700164628 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4C749F7285237A700164628 /* Products.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4C749F62852357F00164628 /* ProductList.swift in Sources */,
+				E4C749F8285237A700164628 /* Products.swift in Sources */,
 				E4C749F42852284100164628 /* ProductListView.swift in Sources */,
 				E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */,
 			);

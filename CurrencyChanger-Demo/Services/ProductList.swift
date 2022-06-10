@@ -20,13 +20,15 @@ class ProductList: ObservableObject {
                    "id": "1",
                    "name": "Hrášek",
                    "price": 0.95,
-                   "unit": "balenie"
+                   "unit": "balenie",
+                   "image": "peas"
                 },
                 {
                 "id": "2",
                 "name": "Fazole",
                 "price": 0.73,
-                "unit": "plechovka"
+                "unit": "plechovka",
+                "image": "beans"
                 }],
         },
                     {
@@ -36,13 +38,15 @@ class ProductList: ObservableObject {
                          "id": "2",
                          "name": "Vejce",
                          "price": 2.10,
-                         "unit": "12ks"
+                         "unit": "12ks",
+                         "image": "eggs"
                         },
                         {
                          "id": "3",
                          "name": "Mléko",
                          "price": 1.30,
-                         "unit": "láhev"
+                         "unit": "láhev",
+                         "image": "milk"
                         }],
             }
         ]

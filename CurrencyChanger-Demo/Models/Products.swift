@@ -18,4 +18,5 @@ struct Products: Codable, Hashable, Identifiable {
     var name: String
     var price: Double
     var unit: String
+    var image: String
 }

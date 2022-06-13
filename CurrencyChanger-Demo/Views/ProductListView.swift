@@ -12,14 +12,17 @@ let backgroundGradient = LinearGradient(
     startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct ProductListView: View {
-    private let products: [Category] = ProductList().all()
+    @ObservedObject var cart: CartViewModel
+    @State private var products: [Category] = ProductList().all()
     var body: some View {
         NavigationView{
             List(products, id: \.self){ category in
-                Section(header: Text(category.name).foregroundColor(Color.brown)
-                                                            .fontWeight(.light)) {
+                Section(header:
+                Text(category.name).foregroundColor(Color.brown).fontWeight(.light)) {
+                    
                 ForEach(category.products, id: \.self){ products in
-                    HStack(alignment: .center, spacing: 0){
+                    
+                HStack(alignment: .center, spacing: 0) {
                         Image(products.image)
                             .resizable()
                             .frame(width: 70, height: 70)
@@ -28,7 +31,7 @@ struct ProductListView: View {
                 VStack(alignment: .leading, spacing: 5){
                     Text(products.name)
                         .font(.title3)
-                    HStack(alignment: .center, spacing: 2){
+                HStack(alignment: .center, spacing: 2){
                         Text("\(products.price, specifier: "%.2f")$")
                             .bold()
                             .font(.headline)
@@ -36,14 +39,15 @@ struct ProductListView: View {
                             .font(.subheadline)
                         }
                     } .padding()
-                        
-                        Spacer()
-                        Button{
-        
-                        }label: {
-                            Image(systemName: "cart.badge.plus")
-                        }
-                        
+
+                            Spacer()
+                    
+                        Button(action:{
+                            cart.addToCart(product: products)
+                            }, label: {
+                                Image(systemName: "cart.badge.plus")
+                                    .foregroundColor(products.isAdded ? Color.green : Color.black)
+                            })
                         }
                     }
                 }
@@ -62,21 +66,33 @@ struct ProductListView: View {
                         .foregroundColor(Color.brown)
                         .font(.title)
                 }
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button{
-                    }label: {
-                        Image(systemName: "cart")
-                            .foregroundColor(Color.brown)
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        ZStack{
+                        Button{
+                        }label: {
+                            Image(systemName: "cart")
+                                .foregroundColor(Color.brown)
                     }
+                            Circle()
+                                .fill(Color.brown)
+                                .frame(width: 15, height: 15)
+                                .offset(x: 12, y: 12)
+                            Text("\(self.cart.cartProducts.count)")
+                                .font(Font.system(.caption))
+                                .offset(x: 12, y: 12)
+                                .foregroundColor(Color.white)
+                                
+                            
+                }
                 }
             }
             Spacer()
-        }
+        }.environmentObject(cart)
     }
 }
 
 struct ProductListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView()
+        ProductListView(cart: CartViewModel())
     }
 }

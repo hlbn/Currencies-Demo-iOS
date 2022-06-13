@@ -7,16 +7,25 @@
 
 import Foundation
 
-struct Category: Codable, Hashable, Identifiable {
-    var id: String
+struct Category: Decodable, Hashable, Identifiable {
+    let id = UUID()
     var name: String
     var products: [Products]
+    
+    enum CodingKeys: String, CodingKey {
+        case name, products
+    }
 }
 
-struct Products: Codable, Hashable, Identifiable {
-    var id: String
+struct Products: Decodable, Hashable, Identifiable {
+    let id = UUID()
     var name: String
-    var price: Double
+    var price: Float
     var unit: String
     var image: String
+    var isAdded: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case name, price, unit, image
+    }
 }

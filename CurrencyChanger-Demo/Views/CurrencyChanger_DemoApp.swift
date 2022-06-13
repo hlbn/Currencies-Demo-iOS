@@ -11,7 +11,7 @@ import SwiftUI
 struct CurrencyChanger_DemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ProductListView()
+            ProductListView(cart: CartViewModel())
         }
     }
 }

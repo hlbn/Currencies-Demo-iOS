@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4898D3F285645210067F7DE /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4898D3E285645210067F7DE /* Cart.swift */; };
+		E4898D41285646870067F7DE /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4898D40285646870067F7DE /* ProductListViewModel.swift */; };
 		E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */; };
 		E4C749E3285221A700164628 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E2285221A700164628 /* Assets.xcassets */; };
 		E4C749E6285221A700164628 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C749E5285221A700164628 /* Preview Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4898D3E285645210067F7DE /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		E4898D40285646870067F7DE /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
 		E4C749DB285221A600164628 /* CurrencyChanger-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CurrencyChanger-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyChanger_DemoApp.swift; sourceTree = "<group>"; };
 		E4C749E2285221A700164628 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		E4C749EE2852276600164628 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E4898D40285646870067F7DE /* ProductListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E4C749F7285237A700164628 /* Products.swift */,
+				E4898D3E285645210067F7DE /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +183,8 @@
 			files = (
 				E4C749F62852357F00164628 /* ProductList.swift in Sources */,
 				E4C749F8285237A700164628 /* Products.swift in Sources */,
+				E4898D41285646870067F7DE /* ProductListViewModel.swift in Sources */,
+				E4898D3F285645210067F7DE /* Cart.swift in Sources */,
 				E4C749F42852284100164628 /* ProductListView.swift in Sources */,
 				E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */,
 			);

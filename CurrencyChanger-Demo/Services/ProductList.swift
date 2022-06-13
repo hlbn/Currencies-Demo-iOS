@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class ProductList: ObservableObject {
     @Published var products: [Category] = []
@@ -14,17 +13,16 @@ class ProductList: ObservableObject {
     private let productsDecode = """
         [
             {
-                "id": "1",
                 "name": "Strukoviny",
                 "products":[{
-                   "id": "1",
+                   
                    "name": "Hrášek",
                    "price": 0.95,
                    "unit": "balenie",
                    "image": "peas"
                 },
                 {
-                "id": "2",
+                
                 "name": "Fazole",
                 "price": 0.73,
                 "unit": "plechovka",
@@ -32,17 +30,16 @@ class ProductList: ObservableObject {
                 }],
         },
                     {
-                        "id": "2",
                         "name": "Mléčne výrobky a vejce",
                         "products":[{
-                         "id": "2",
+                         
                          "name": "Vejce",
                          "price": 2.10,
                          "unit": "12ks",
                          "image": "eggs"
                         },
                         {
-                         "id": "3",
+                         
                          "name": "Mléko",
                          "price": 1.30,
                          "unit": "láhev",

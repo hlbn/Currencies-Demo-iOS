@@ -8,13 +8,8 @@
 import Foundation
 
 class CartViewModel: ObservableObject {
-    @Published var products: [Products]
-    @Published var cartProducts: [Cart]
-    
-    init(){
-        self.products = []
-        self.cartProducts = []
-    }
+    @Published var products: [Products] = []
+    @Published var cartProducts: [Cart] = []
     
     func addToCart(product: Products){
         var addNewProduct = true
@@ -28,5 +23,22 @@ class CartViewModel: ObservableObject {
         if addNewProduct {
             cartProducts.append(Cart(product: product, quantity: 1))
         }
+    }
+    
+    func calculateTotalPrice()->String{
+        var price : Float = 0
+        
+        cartProducts.forEach{ (item) in
+            price += Float(item.quantity) * Float(truncating: NSNumber(value: item.quantity))
+        }
+        return getPrice(value: price)
+    }
+    
+    func getPrice(value: Float)->String{
+        
+        let format = NumberFormatter()
+        format.numberStyle = .currency
+        
+        return format.string(from: NSNumber(value: value)) ?? ""
     }
 }

@@ -46,8 +46,6 @@ struct CartRowView: View {
                     Image(systemName: "plus")
                         .foregroundColor(Color.black)
                 }).frame(width: 20, height: 20)
-
-                                
             }
         }
     }

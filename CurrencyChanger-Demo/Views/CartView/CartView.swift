@@ -11,14 +11,12 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var cart: CartViewModel
     var body: some View {
-        ScrollView {
+        ZStack {
+            backgroundGradient.opacity(0.3).ignoresSafeArea()
             if cart.cartProducts.count == 0{
-                ZStack{
-                    backgroundGradient.opacity(0.3).ignoresSafeArea(.all)
                 Text("Váš nákupný košík je prázdny")
                         .offset(x: 0, y: -100)
                         .foregroundColor(Color.black).opacity(0.6)
-                }
             }else{
                 List($cart.cartProducts) { $cartProduct in
                     ZStack{
@@ -27,20 +25,18 @@ struct CartView: View {
            }.onAppear(){
                UITableView.appearance().backgroundColor = .clear
                UITableViewCell.appearance().backgroundColor = .clear
-           }
-           .background(backgroundGradient)
-           .navigationBarTitleDisplayMode(.large)
-        }
-        }.navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .principal){
-                    Text("Košík")
-                        .fontWeight(.light)
-                        .foregroundColor(Color.brown)
-                        .font(.title)
                 }
-            }
+              }
+            }.navigationViewStyle(StackNavigationViewStyle())
+             .navigationBarTitleDisplayMode(.large)
+             .toolbar {
+                 ToolbarItem(placement: .principal){
+                     Text("Košík")
+                         .fontWeight(.light)
+                         .foregroundColor(Color.brown)
+                         .font(.title)
+                }
+           }
      }
 }
 

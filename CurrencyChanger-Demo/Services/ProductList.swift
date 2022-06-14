@@ -23,28 +23,28 @@ class ProductList: ObservableObject {
                 },
                 {
                 
-                "name": "Fazole",
-                "price": 0.73,
-                "unit": "plechovka",
-                "image": "beans"
+                   "name": "Fazole",
+                   "price": 0.73,
+                   "unit": "plechovka",
+                   "image": "beans"
+               }],
+            },
+            {
+                "name": "Mléčne výrobky a vejce",
+                "products":[{
+                         
+                    "name": "Vejce",
+                    "price": 2.10,
+                    "unit": "12ks",
+                    "image": "eggs"
+                },
+                {
+                         
+                    "name": "Mléko",
+                    "price": 1.30,
+                    "unit": "láhev",
+                    "image": "milk"
                 }],
-        },
-                    {
-                        "name": "Mléčne výrobky a vejce",
-                        "products":[{
-                         
-                         "name": "Vejce",
-                         "price": 2.10,
-                         "unit": "12ks",
-                         "image": "eggs"
-                        },
-                        {
-                         
-                         "name": "Mléko",
-                         "price": 1.30,
-                         "unit": "láhev",
-                         "image": "milk"
-                        }],
             }
         ]
         """.data(using: .utf8)!
@@ -53,7 +53,6 @@ class ProductList: ObservableObject {
     func all() -> [Category] {
         let decoder = JSONDecoder()
         let products = try! decoder.decode([Category].self, from: productsDecode)
-        print(products)
         return products
     }
 }

@@ -14,8 +14,8 @@
             filePath = "CurrencyChanger-Demo/ViewModels/ProductListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "addToCart(product:)"
             landmarkType = "7">
          </BreakpointContent>

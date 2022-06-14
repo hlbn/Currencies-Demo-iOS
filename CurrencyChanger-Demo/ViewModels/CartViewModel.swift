@@ -17,7 +17,6 @@ class CartViewModel: ObservableObject {
     }
     
     func addToCart(product: Products){
-        
         var addNewProduct = true
         
         for (index, item) in cartProducts.enumerated() {
@@ -26,7 +25,6 @@ class CartViewModel: ObservableObject {
                 addNewProduct = false
             }
     }
-    
         if addNewProduct {
             cartProducts.append(Cart(product: product, quantity: 1))
         }

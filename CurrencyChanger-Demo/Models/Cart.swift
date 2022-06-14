@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Cart: Identifiable {
+struct Cart: Identifiable, Hashable {
     var id: String
     var products: Products
     var quantity: Int

@@ -25,6 +25,11 @@ class CartViewModel: ObservableObject {
         }
     }
     
+    func removeProduct(product: Products) {
+        guard let index = cartProducts.firstIndex(where: { $0.products == product }) else { return}
+        cartProducts.remove(at: index)
+    }
+    
     func calculateTotalPrice()->String{
         var price : Float = 0
         

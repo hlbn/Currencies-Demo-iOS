@@ -15,29 +15,37 @@ struct CartView: View {
             backgroundGradient.opacity(0.3).ignoresSafeArea()
             if cart.cartProducts.count == 0{
                 Text("Váš nákupný košík je prázdny")
-                        .offset(x: 0, y: -100)
-                        .foregroundColor(Color.black).opacity(0.6)
+                    .offset(x: 0, y: -100)
+                    .foregroundColor(Color.black).opacity(0.6)
             }else{
-                List($cart.cartProducts) { $cartProduct in
-                    ZStack{
-                    CartRowView(cartProduct: $cartProduct)
-                }
-           }.onAppear(){
-               UITableView.appearance().backgroundColor = .clear
-               UITableViewCell.appearance().backgroundColor = .clear
-                }
-              }
-            }.navigationViewStyle(StackNavigationViewStyle())
-             .navigationBarTitleDisplayMode(.large)
-             .toolbar {
-                 ToolbarItem(placement: .principal){
-                     Text("Košík")
-                         .fontWeight(.light)
-                         .foregroundColor(Color.brown)
-                         .font(.title)
-                }
-           }
-     }
+                List{
+                    ForEach($cart.cartProducts) { $cartProduct in
+                        CartRowView(cartProduct: $cartProduct)
+                            .swipeActions{
+                                Button(role: .destructive){
+                                    cart.removeProduct(product: cartProduct.products)
+                                } label: {
+                                    Text("Remove")
+                                    Image(systemName: "trash")
+                            }
+                        }
+                    }
+                }.onAppear(){
+                    UITableView.appearance().backgroundColor = .clear
+                    UITableViewCell.appearance().backgroundColor = .clear
+                }.buttonStyle(BorderlessButtonStyle())
+            }
+        }.navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .principal){
+                    Text("Košík")
+                        .fontWeight(.light)
+                        .foregroundColor(Color.brown)
+                        .font(.title)
+            }
+        }
+    }
 }
 
 struct CartView_Previews: PreviewProvider {

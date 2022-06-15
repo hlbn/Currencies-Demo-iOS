@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CartRowView: View {
+    @EnvironmentObject var cart: CartViewModel
     @Binding var cartProduct: Cart
     var body: some View {
         if cartProduct.id.isEmpty{
@@ -32,7 +33,9 @@ struct CartRowView: View {
             } .padding()
             Spacer()
             Button(action:{
-                
+                if cartProduct.quantity > 1{
+                    cartProduct.quantity -= 1
+                }
                 }, label: {
                     Image(systemName: "minus")
                         .foregroundColor(Color.black)
@@ -41,7 +44,7 @@ struct CartRowView: View {
                 .padding()
             
             Button(action:{
-                
+                    cartProduct.quantity += 1
                 }, label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.black)

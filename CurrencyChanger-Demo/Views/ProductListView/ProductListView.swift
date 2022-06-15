@@ -25,7 +25,7 @@ struct ProductListView: View {
                     }
                 }
                 .padding()
-            }
+            }.buttonStyle(BorderlessButtonStyle())
             .onAppear(){
                 UITableView.appearance().backgroundColor = .clear // For tableView
                 UITableViewCell.appearance().backgroundColor = .clear

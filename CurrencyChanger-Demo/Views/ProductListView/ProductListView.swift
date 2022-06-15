@@ -9,7 +9,7 @@
 import SwiftUI
 
 let backgroundGradient = LinearGradient(
-    colors: [Color.white, Color.brown],
+    colors: [Color.white, Color("backgroundGreen")],
     startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct ProductListView: View {
@@ -19,7 +19,7 @@ struct ProductListView: View {
         NavigationView{
             List(products, id: \.self){ category in
                 Section(header:
-                Text(category.name).foregroundColor(Color.brown).fontWeight(.light)) {
+                            Text(category.name).foregroundColor(Color.brown).fontWeight(.light)) {
                 ForEach(category.products, id: \.self){ products in
                     ProductListRow(cart: cart, products: products)
                     }

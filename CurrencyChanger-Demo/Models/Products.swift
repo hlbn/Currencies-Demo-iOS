@@ -8,7 +8,7 @@
 import Foundation
 
 struct Category: Decodable, Hashable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var products: [Products]
     
@@ -18,7 +18,7 @@ struct Category: Decodable, Hashable, Identifiable {
 }
 
 struct Products: Decodable, Hashable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var price: Float
     var unit: String

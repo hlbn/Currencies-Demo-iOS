@@ -18,12 +18,13 @@ struct CartView: View {
                     .offset(x: 0, y: -100)
                     .foregroundColor(Color.black).opacity(0.6)
             }else{
-                List{
+                ZStack{
+                   List{
                     ForEach($cart.cartProducts) { $cartProduct in
                         CartRowView(cartProduct: $cartProduct)
                             .swipeActions{
                                 Button(role: .destructive){
-                                    cart.removeProduct(product: cartProduct.products)
+                                    cart.removeProduct(product: cartProduct.products, quantity: cartProduct.quantity)
                                 } label: {
                                     Text("Remove")
                                     Image(systemName: "trash")
@@ -34,6 +35,8 @@ struct CartView: View {
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())
+                  CartSummaryView(subtotal: $cart.subtotal)
+              }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitleDisplayMode(.large)

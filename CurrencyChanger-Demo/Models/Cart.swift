@@ -11,8 +11,8 @@ struct Cart: Identifiable, Hashable {
     var id: String
     var products: Products
     var quantity: Int
-    
-    var subTotal : Float { get { return products.price * Float(quantity) } }
+    var subtotal: Float = 0.0
+    var isAdded: Bool = false
     
     init(product: Products, quantity: Int) {
         self.id = UUID().uuidString

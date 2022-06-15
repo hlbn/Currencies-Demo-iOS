@@ -24,7 +24,7 @@ struct CartRowView: View {
             Text(cartProduct.products.name)
                 .font(.title3)
         HStack(alignment: .center, spacing: 2){
-            Text("\(cartProduct.products.price, specifier: "%.2f")$")
+            Text("\(cart.getPrice(value: cartProduct.products.price))")
                     .bold()
                     .font(.headline)
             Text("/\(cartProduct.products.unit)")
@@ -34,7 +34,7 @@ struct CartRowView: View {
             Spacer()
             Button(action:{
                 if cartProduct.quantity > 1{
-                    cartProduct.quantity -= 1
+                    cart.minusQuantity(product: cartProduct.products)
                 }
                 }, label: {
                     Image(systemName: "minus")
@@ -44,7 +44,7 @@ struct CartRowView: View {
                 .padding()
             
             Button(action:{
-                    cartProduct.quantity += 1
+                cart.addToCart(product: cartProduct.products)
                 }, label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.black)

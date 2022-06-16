@@ -17,8 +17,8 @@ struct CartRowView: View {
         HStack(alignment: .center, spacing: 0) {
             Image(cartProduct.products.image)
                     .resizable()
-                    .frame(width: 70, height: 70)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                    .frame(width: 60, height: 60)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
                 Divider()
         VStack(alignment: .leading, spacing: 5){
             Text(cartProduct.products.name)

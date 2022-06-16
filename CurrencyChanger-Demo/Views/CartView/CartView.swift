@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cart: CartViewModel
+    @ObservedObject var currency = CurrencyAPI()
     var body: some View {
         ZStack {
             backgroundGradient.opacity(0.3).ignoresSafeArea()
@@ -35,7 +36,11 @@ struct CartView: View {
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())
-                  CartSummaryView(subtotal: $cart.subtotal)
+                HStack{
+                    Text("Medzisúčet").font(.headline)
+                    Spacer()
+                    Text(cart.getPrice(value: cart.subtotal)).font(.title2)
+                }.padding()
               }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
@@ -47,7 +52,7 @@ struct CartView: View {
                         .foregroundColor(Color.brown)
                         .font(.title)
             }
-        }
+            }.environmentObject(currency)
     }
 }
 

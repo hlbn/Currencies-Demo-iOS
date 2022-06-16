@@ -14,8 +14,8 @@ struct ProductListRow: View {
         HStack(alignment: .center, spacing: 0) {
                 Image(products.image)
                     .resizable()
-                    .frame(width: 70, height: 70)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                    .frame(width: 60, height: 60)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
                 Divider()
         VStack(alignment: .leading, spacing: 5){
             Text(products.name)
@@ -41,6 +41,6 @@ struct ProductListRow: View {
 
 struct ProductListRow_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListView(cart: CartViewModel())
+        ProductListView()
     }
 }

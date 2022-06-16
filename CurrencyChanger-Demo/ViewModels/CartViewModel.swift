@@ -36,15 +36,6 @@ class CartViewModel: ObservableObject {
         cartProducts.remove(at: index)
     }
     
-    func calculateTotalPrice()->String{
-        var price : Float = 0
-        
-        cartProducts.forEach{ (product) in
-            price += Float(product.quantity) * Float(truncating: NSNumber(value: product.products.price))
-        }
-        return getPrice(value: price)
-    }
-    
     func getPrice(value: Float)->String{
         
         let format = NumberFormatter()

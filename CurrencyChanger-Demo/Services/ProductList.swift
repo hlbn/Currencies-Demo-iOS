@@ -16,33 +16,33 @@ class ProductList: ObservableObject {
                 "name": "Strukoviny",
                 "products":[{
                    
-                   "name": "Hrášek",
+                   "name": "Hrášok",
                    "price": 0.95,
                    "unit": "balenie",
                    "image": "peas"
                 },
                 {
                 
-                   "name": "Fazole",
+                   "name": "Fazule",
                    "price": 0.73,
                    "unit": "plechovka",
                    "image": "beans"
                }],
             },
             {
-                "name": "Mléčne výrobky a vejce",
+                "name": "Mliečne výrobky a vajce",
                 "products":[{
                          
-                    "name": "Vejce",
+                    "name": "Vajcia",
                     "price": 2.10,
                     "unit": "12ks",
                     "image": "eggs"
                 },
                 {
                          
-                    "name": "Mléko",
+                    "name": "Mlieko",
                     "price": 1.30,
-                    "unit": "láhev",
+                    "unit": "fľaša",
                     "image": "milk"
                 }],
             }

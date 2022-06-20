@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CartViewModel: ObservableObject {
     @Published var products: [Products] = []
@@ -65,4 +66,5 @@ class CartViewModel: ObservableObject {
             }
         }
     }
+
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductListRow: View {
     @ObservedObject var cart: CartViewModel
+    @EnvironmentObject var currency: CurrencyAPI
     @State var products: Products
     var body: some View {
         HStack(alignment: .center, spacing: 0) {

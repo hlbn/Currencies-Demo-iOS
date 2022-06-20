@@ -10,7 +10,9 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cart: CartViewModel
-    @ObservedObject var currency = CurrencyAPI()
+    @EnvironmentObject var currency: CurrencyAPI
+    @EnvironmentObject var currentCurrency: CurrencyViewModel
+    @State var currencyButton = false
     var body: some View {
         ZStack {
             backgroundGradient.opacity(0.3).ignoresSafeArea()
@@ -19,10 +21,10 @@ struct CartView: View {
                     .offset(x: 0, y: -100)
                     .foregroundColor(Color.black).opacity(0.6)
             }else{
-                ZStack{
+                VStack{
                    List{
                     ForEach($cart.cartProducts) { $cartProduct in
-                        CartRowView(cartProduct: $cartProduct)
+                        CartRowView(currency: currency.currency, cartProduct: $cartProduct)
                             .swipeActions{
                                 Button(role: .destructive){
                                     cart.removeProduct(product: cartProduct.products, quantity: cartProduct.quantity)
@@ -32,15 +34,26 @@ struct CartView: View {
                             }
                         }
                     }
-                }.onAppear(){
+                }
+                   .onAppear(){
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())
-                HStack{
+                    Spacer()
+                    VStack{
+                    HStack{
                     Text("Medzisúčet").font(.headline)
                     Spacer()
-                    Text(cart.getPrice(value: cart.subtotal)).font(.title2)
+                    Text("\(cart.subtotal, specifier: "%.2f")\(currentCurrency.identifier)").font(.title2)
                 }.padding()
+                    VStack(alignment: .center){
+                        NavigationLink{
+                            CartSummaryView()
+                        }label: {
+                            ButtonView(image: "creditcard", text: "Pokračovať k objednávke").frame(width: 350, height: 40)
+                    }
+                  }
+                }.background(Color.white).shadow(color: Color("backgroundGreen").opacity(0.3), radius: 30, x: 10, y: 0)
               }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
@@ -52,7 +65,20 @@ struct CartView: View {
                         .foregroundColor(Color.brown)
                         .font(.title)
             }
-            }.environmentObject(currency)
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(String("\(currentCurrency.shownCurrency)")){
+                        currencyButton = true
+                        }
+                }
+            }
+            .confirmationDialog("", isPresented: $currencyButton) {
+                Button("USD"){currentCurrency.selectedCurrency(currency: .usd)}
+                Button("EUR"){currentCurrency.selectedCurrency(currency: .eur)}
+                Button("CZK"){currentCurrency.selectedCurrency(currency: .czk)}
+                Button("GBP"){currentCurrency.selectedCurrency(currency: .gbp)}
+            } message: {
+                Text("Select currency")
+            }
     }
 }
 

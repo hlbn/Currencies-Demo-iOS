@@ -14,6 +14,8 @@ let backgroundGradient = LinearGradient(
 
 struct ProductListView: View {
     @ObservedObject var cart = CartViewModel()
+    @ObservedObject var currency = CurrencyAPI()
+    @ObservedObject var currentCurrency = CurrencyViewModel()
     @State private var products: [Category] = ProductList().all()
     var body: some View {
         NavigationView{
@@ -58,7 +60,7 @@ struct ProductListView: View {
                 }
             }
             Spacer()
-        }.environmentObject(cart)
+        }.environmentObject(cart).environmentObject(currency).environmentObject(currentCurrency)
     }
 }
 

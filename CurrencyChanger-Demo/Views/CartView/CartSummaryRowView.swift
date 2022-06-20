@@ -1,21 +1,18 @@
 //
-//  CartRowView.swift
+//  CartSummaryRowView.swift
 //  CurrencyChanger-Demo
 //
-//  Created by Adam Hlubina on 13/06/2022.
+//  Created by Adam Hlubina on 20/06/2022.
 //
 
 import SwiftUI
 
-struct CartRowView: View {
+struct CartSummaryRowView: View {
     @EnvironmentObject var currentCurrency: CurrencyViewModel
     @EnvironmentObject var cart: CartViewModel
     @State var currency: Currency?
     @Binding var cartProduct: Cart
     var body: some View {
-        if cartProduct.id.isEmpty{
-            Text("Váš nákupný košík je prázdny")
-        }else{
         HStack(alignment: .center, spacing: 0) {
             Image(cartProduct.products.image)
                     .resizable()
@@ -34,32 +31,14 @@ struct CartRowView: View {
                 }
             } .padding()
             Spacer()
-            Button(action:{
-                if cartProduct.quantity > 1{
-                    cart.minusQuantity(product: cartProduct.products)
-                }
-                }, label: {
-                    Image(systemName: "minus")
-                        .foregroundColor(Color.black)
-                }).frame(width: 20, height: 20)
-            Text("\(cartProduct.quantity)")
-                .frame(width: 30, height: 30)
-                .border(.black, width: 1.5)
+            Text("\(cartProduct.quantity) /ks")
                 .padding()
-            
-            Button(action:{
-                cart.plusQuantity(product: cartProduct.products)
-                }, label: {
-                    Image(systemName: "plus")
-                        .foregroundColor(Color.black)
-                }).frame(width: 20, height: 20)
-            }
         }
     }
 }
 
-struct CartRowView_Previews: PreviewProvider {
+struct CartSummaryRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        CartSummaryView()
     }
 }

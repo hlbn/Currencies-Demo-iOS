@@ -1,44 +1,60 @@
 //
-//  CartSummaryView.swift
+//  CartSummeryView.swift
 //  CurrencyChanger-Demo
 //
-//  Created by Adam Hlubina on 15/06/2022.
+//  Created by Adam Hlubina on 20/06/2022.
 //
 
 import SwiftUI
 
 struct CartSummaryView: View {
     @EnvironmentObject var cart: CartViewModel
-    @Binding var subtotal: Float
+    @EnvironmentObject var currency: CurrencyAPI
+    @EnvironmentObject var currentCurrency: CurrencyViewModel
+    @State var currencyButton = false
     var body: some View {
-        VStack{
-            HStack{
-                Text("Zhrnutie").bold()
-                         Spacer()
                 VStack{
-                    HStack{
-                        Text("Medzisúčet")
-                        Spacer()
-                        Text(cart.getPrice(value: subtotal))
+                   List{
+                    ForEach($cart.cartProducts) { $cartProduct in
+                        CartSummaryRowView(currency: currency.currency, cartProduct: $cartProduct)
                     }
-                    HStack{
-                        Text("Daň")
-                        Spacer()
-                        Text(cart.getPrice(value: subtotal*0.20))
-                    }
-                    HStack{
-                        Text("Celkom")
-                        Spacer()
-                        Text(cart.getPrice(value: Float(truncating: NSNumber(value: subtotal + subtotal*0.20))))
-                    }
-                }.frame(width: 200)
-            }.padding()
-        }
+                }
+                   .onAppear(){
+                    UITableView.appearance().backgroundColor = .clear
+                    UITableViewCell.appearance().backgroundColor = .clear
+                }.buttonStyle(BorderlessButtonStyle())
+                 .background(backgroundGradient.opacity(0.3).ignoresSafeArea())
+                    Spacer()
+                        PriceSummaryPanelView(subtotal: $cart.subtotal)
+                            .background(Color.white).shadow(color: Color("backgroundGreen").opacity(0.3), radius: 30, x: 10, y: 0)
+        }.navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar {
+                ToolbarItem(placement: .principal){
+                    Text("Košík")
+                        .fontWeight(.light)
+                        .foregroundColor(Color.brown)
+                        .font(.title)
+            }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button(String("\(currentCurrency.shownCurrency)")){
+                        currencyButton = true
+                        }
+                }
+            }
+            .confirmationDialog("", isPresented: $currencyButton) {
+                Button("USD"){currentCurrency.selectedCurrency(currency: .usd)}
+                Button("EUR"){currentCurrency.selectedCurrency(currency: .eur)}
+                Button("CZK"){currentCurrency.selectedCurrency(currency: .czk)}
+                Button("GBP"){currentCurrency.selectedCurrency(currency: .gbp)}
+            } message: {
+                Text("Select currency")
+            }
     }
 }
 
 struct CartSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        CartSummaryView()
     }
 }

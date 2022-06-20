@@ -34,10 +34,11 @@ class CurrencyAPI: ObservableObject {
         DispatchQueue.main.async {
             self?.currency = currency
         }
-           print(self?.currency ?? "Nejde to")
-           print(self?.currency ?? "Nejde to")
+           print(data)
+           print(self?.currency ?? "Dekoder zlyhal")
+           print(self?.currency ?? "Dekoder zlyhal")
       } catch {
-          print(self?.currency ?? "Nejde to")
+          print(self?.currency ?? "Dekoder zlyhal1")
           self?.semaphore.signal()
       }
     }

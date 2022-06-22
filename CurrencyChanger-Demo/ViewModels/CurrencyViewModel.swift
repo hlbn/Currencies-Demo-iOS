@@ -10,9 +10,9 @@ import SwiftUI
 
 class CurrencyViewModel: ObservableObject {
     @ObservedObject var currentCurrency: CurrencyAPI = CurrencyAPI()
-    var shownCurrency: String = "USD"
-    var rate: Float = 1.0
-    var identifier: String = "$"
+    @Published var shownCurrency: String = "USD"
+    @Published var rate: Float = 1.0
+    @Published var identifier: String = "$"
     
     enum CurrentCurrency {
         case usd, eur, czk, gbp
@@ -32,11 +32,11 @@ class CurrencyViewModel: ObservableObject {
         case .czk:
                 shownCurrency = "CZK"
                 rate = Float(currentCurrency.currency?.quotes.czk ?? 1.0)
-                identifier = "CZK"
+                identifier = "Kč"
         case .gbp:
                 shownCurrency = "GBP"
                 rate = Float(currentCurrency.currency?.quotes.gbp ?? 1.0)
-                identifier = "GBP"
+                identifier = "£"
         }
     }
 }

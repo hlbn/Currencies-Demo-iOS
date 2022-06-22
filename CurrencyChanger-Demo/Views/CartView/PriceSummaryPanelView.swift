@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PriceSummaryPanelView: View {
     @EnvironmentObject var currentCurrency: CurrencyViewModel
-    @EnvironmentObject var cart: CartViewModel
     @Binding var subtotal: Float
     var body: some View {
         VStack{
@@ -20,17 +19,17 @@ struct PriceSummaryPanelView: View {
                     HStack{
                         Text("Medzisúčet")
                         Spacer()
-                        Text("\(subtotal, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
+                        Text("\(subtotal * currentCurrency.rate, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
                     }
                     HStack{
                         Text("Daň")
                         Spacer()
-                        Text("\(subtotal * 0.20, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
+                        Text("\((subtotal * currentCurrency.rate) * 0.20, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
                     }
                     HStack{
                         Text("Celkom")
                         Spacer()
-                        Text("\(subtotal + subtotal * 0.20, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
+                        Text("\((subtotal + subtotal * 0.20) * currentCurrency.rate, specifier: "%.2f")\(currentCurrency.identifier)").fontWeight(.semibold)
                     }
                 }.frame(width: 200)
             }.padding()

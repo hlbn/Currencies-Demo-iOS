@@ -25,13 +25,13 @@ struct CartRowView: View {
         VStack(alignment: .leading, spacing: 5){
             Text(cartProduct.products.name)
                 .font(.title3)
-        HStack(alignment: .center, spacing: 2){
-            Text("\(cartProduct.products.price * currentCurrency.rate, specifier: "%.2f")\(currentCurrency.identifier)")
+            HStack(alignment: .center, spacing: 1){
+                Text("\(cartProduct.products.price * currentCurrency.rate, specifier: "%.2f")\(currentCurrency.identifier)")
                     .bold()
-                    .font(.headline)
-            Text("/\(cartProduct.products.unit)")
-                .font(.caption)
-                }
+                    .font(.subheadline)
+                Text("/\(cartProduct.products.unit)")
+                .font(.caption2)
+              }
             } .padding()
             Spacer()
             Button(action:{
@@ -53,7 +53,7 @@ struct CartRowView: View {
                     Image(systemName: "plus")
                         .foregroundColor(Color.black)
                 }).frame(width: 20, height: 20)
-            }
+          }
         }
     }
 }

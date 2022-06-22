@@ -36,6 +36,7 @@ struct CartView: View {
                     }
                 }
                    .onAppear(){
+                       
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())
@@ -44,7 +45,7 @@ struct CartView: View {
                     HStack{
                     Text("Medzisúčet").font(.headline)
                     Spacer()
-                    Text("\(cart.subtotal, specifier: "%.2f")\(currentCurrency.identifier)").font(.title2)
+                        Text("\(cart.subtotal * currentCurrency.rate, specifier: "%.2f")\(currentCurrency.identifier)").font(.title2)
                 }.padding()
                     VStack(alignment: .center){
                         NavigationLink{
@@ -64,11 +65,11 @@ struct CartView: View {
                         .fontWeight(.light)
                         .foregroundColor(Color.brown)
                         .font(.title)
-            }
+                    }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button(String("\(currentCurrency.shownCurrency)")){
                         currencyButton = true
-                        }
+                    }
                 }
             }
             .confirmationDialog("", isPresented: $currencyButton) {

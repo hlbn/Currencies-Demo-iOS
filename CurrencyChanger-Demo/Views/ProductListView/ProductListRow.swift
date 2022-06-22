@@ -21,13 +21,13 @@ struct ProductListRow: View {
         VStack(alignment: .leading, spacing: 5){
             Text(products.name)
                 .font(.title3)
-        HStack(alignment: .center, spacing: 2){
+            HStack(alignment: .center, spacing: 1){
                 Text("\(products.price, specifier: "%.2f")$")
                     .bold()
-                    .font(.headline)
+                    .font(.subheadline)
                 Text("/\(products.unit)")
-                    .font(.caption)
-                }
+                .font(.caption2)
+              }
             } .padding()
                 Spacer()
                 Button(action:{
@@ -35,8 +35,8 @@ struct ProductListRow: View {
                     }, label: {
                         Image(systemName: "cart.badge.plus")
                             .foregroundColor(Color.black)
-                })
-        }
+            })
+        }.frame(height: 50)
     }
 }
 

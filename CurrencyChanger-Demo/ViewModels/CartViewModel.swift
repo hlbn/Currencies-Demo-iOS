@@ -11,7 +11,7 @@ import SwiftUI
 class CartViewModel: ObservableObject {
     @Published var products: [Products] = []
     @Published var cartProducts: [Cart] = []
-    var subtotal: Float = 0.0
+    @Published var subtotal: Float = 0.0
     
     func addToCart(product: Products){
         var addNewProduct = true
@@ -35,15 +35,6 @@ class CartViewModel: ObservableObject {
         subtotal = subtotal - price
         guard let index = cartProducts.firstIndex(where: { $0.products == product }) else { return}
         cartProducts.remove(at: index)
-    }
-    
-    func getPrice(value: Float)->String{
-        
-        let format = NumberFormatter()
-        format.numberStyle = .currency
-        format.locale = Locale(identifier: "us_US")
-        
-        return format.string(from: NSNumber(value: value)) ?? ""
     }
     
     func minusQuantity(product: Products){

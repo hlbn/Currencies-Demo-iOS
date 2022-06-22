@@ -20,6 +20,7 @@ struct CartSummaryView: View {
                     }
                 }
                    .onAppear(){
+                    currencyButton = false
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())

@@ -15,7 +15,7 @@ class CurrencyAPI: ObservableObject {
     }
     func fetch() {
     let url = "https://api.apilayer.com/currency_data/live?source=USD&currencies=EUR%2CGBP%2CCZK"
-    let apiKey = ""
+    let apiKey = "QZyVWPxRgcA9FMjdVh9fRm9WyDfrK0RM"
     var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
     request.httpMethod = "GET"
     request.addValue(apiKey, forHTTPHeaderField: "apikey")

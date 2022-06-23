@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct CartSummaryView: View {
+    @EnvironmentObject var networkManager: NetworkManager
     @EnvironmentObject var cart: CartViewModel
-    @EnvironmentObject var currency: CurrencyAPI
     @EnvironmentObject var currentCurrency: CurrencyViewModel
     @State var currencyButton = false
+    @Binding var nightMode: Bool
     var body: some View {
                 VStack{
                    List{
                     ForEach($cart.cartProducts) { $cartProduct in
-                        CartSummaryRowView(currency: currency.currency, cartProduct: $cartProduct)
+                        CartSummaryRowView(cartProduct: $cartProduct)
                     }
                 }
                    .onAppear(){
@@ -24,12 +25,15 @@ struct CartSummaryView: View {
                     UITableView.appearance().backgroundColor = .clear
                     UITableViewCell.appearance().backgroundColor = .clear
                 }.buttonStyle(BorderlessButtonStyle())
-                 .background(backgroundGradient.opacity(0.3).ignoresSafeArea())
+                        .background(nightMode ? darkBackgroundGradient.opacity(0.3).ignoresSafeArea() : backgroundGradient.opacity(0.3).ignoresSafeArea())
                     Spacer()
                         PriceSummaryPanelView(subtotal: $cart.subtotal)
-                            .background(Color.white).shadow(color: Color("backgroundGreen").opacity(0.3), radius: 30, x: 10, y: 0)
+                        .background(nightMode ? Color.black : Color.white).shadow(color: Color("backgroundGreen").opacity(0.3), radius: 30, x: 10, y: 0)
         }.navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitleDisplayMode(.large)
+            .alert(item: $currentCurrency.appError) { appError in
+                Alert(title: Text("We've got a problem"), message: Text(appError.error.localizedDescription))
+            }
             .toolbar {
                 ToolbarItem(placement: .principal){
                     Text("Košík")
@@ -56,6 +60,6 @@ struct CartSummaryView: View {
 
 struct CartSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        CartSummaryView()
+        CartSummaryView(nightMode: .constant(true))
     }
 }

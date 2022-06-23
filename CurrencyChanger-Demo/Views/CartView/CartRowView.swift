@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Network
 
 struct CartRowView: View {
     @EnvironmentObject var currentCurrency: CurrencyViewModel
     @EnvironmentObject var cart: CartViewModel
-    @State var currency: Currency?
     @Binding var cartProduct: Cart
+    @Binding var nightMode: Bool
     var body: some View {
         if cartProduct.id.isEmpty{
             Text("Váš nákupný košík je prázdny")
@@ -40,18 +41,18 @@ struct CartRowView: View {
                 }
                 }, label: {
                     Image(systemName: "minus")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(nightMode ? Color.white : Color.black)
                 }).frame(width: 20, height: 20)
             Text("\(cartProduct.quantity)")
                 .frame(width: 30, height: 30)
-                .border(.black, width: 1.5)
+                .border(nightMode ? .white.opacity(0.5) : .black.opacity(0.5), width: 1.5)
                 .padding()
             
             Button(action:{
                 cart.plusQuantity(product: cartProduct.products)
                 }, label: {
                     Image(systemName: "plus")
-                        .foregroundColor(Color.black)
+                        .foregroundColor(nightMode ? Color.white : Color.black)
                 }).frame(width: 20, height: 20)
           }
         }
@@ -60,6 +61,6 @@ struct CartRowView: View {
 
 struct CartRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        CartView(nightMode: .constant(true))
     }
 }

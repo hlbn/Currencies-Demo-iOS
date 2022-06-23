@@ -46,6 +46,6 @@ struct PriceSummaryPanelView: View {
 
 struct PriceSummaryPanelView_Previews: PreviewProvider {
     static var previews: some View {
-        CartSummaryView()
+        CartSummaryView(nightMode: .constant(true))
     }
 }

@@ -11,6 +11,7 @@ struct ProductListRow: View {
     @ObservedObject var cart: CartViewModel
     @EnvironmentObject var currency: CurrencyAPI
     @State var products: Products
+    @Binding var nightMode: Bool
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
                 Image(products.image)
@@ -34,7 +35,7 @@ struct ProductListRow: View {
                     cart.addToCart(product: products)
                     }, label: {
                         Image(systemName: "cart.badge.plus")
-                            .foregroundColor(Color.black)
+                            .foregroundColor(nightMode ? .white : .black)
             })
         }.frame(height: 50)
     }

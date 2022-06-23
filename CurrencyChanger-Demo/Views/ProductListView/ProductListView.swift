@@ -11,28 +11,33 @@ import SwiftUI
 let backgroundGradient = LinearGradient(
     colors: [Color.white, Color("backgroundGreen")],
     startPoint: .topLeading, endPoint: .bottomTrailing)
+let darkBackgroundGradient = LinearGradient(
+    colors: [Color.black, Color("backgroundGreen")],
+    startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct ProductListView: View {
+    @ObservedObject var networkManager = NetworkManager()
     @ObservedObject var cart = CartViewModel()
     @ObservedObject var currency = CurrencyAPI()
     @ObservedObject var currentCurrency = CurrencyViewModel()
     @State private var products: [Category] = ProductList().all()
+    @State private var nightMode: Bool = false
     var body: some View {
         NavigationView{
             List(products, id: \.self){ category in
                 Section(header:
                             Text(category.name).foregroundColor(Color.brown).fontWeight(.light)) {
                 ForEach(category.products, id: \.self){ products in
-                    ProductListRow(cart: cart, products: products)
+                    ProductListRow(cart: cart, products: products, nightMode: $nightMode)
                     }
                 }
                 .padding()
             }.buttonStyle(BorderlessButtonStyle())
-            .onAppear(){
-                UITableView.appearance().backgroundColor = .clear // For tableView
+                .onAppear(){
+                UITableView.appearance().backgroundColor = .clear
                 UITableViewCell.appearance().backgroundColor = .clear
             }
-            .background(backgroundGradient.opacity(0.3).ignoresSafeArea())
+                .background(nightMode ? darkBackgroundGradient.opacity(0.3).ignoresSafeArea() : backgroundGradient.opacity(0.3).ignoresSafeArea())
             .toolbar {
                 ToolbarItem(placement: .principal){
                     Text("Produkty")
@@ -43,7 +48,7 @@ struct ProductListView: View {
                     ToolbarItem(placement: .navigationBarTrailing){
                         ZStack{
                         NavigationLink{
-                            CartView()
+                            CartView(nightMode: $nightMode)
                         }label: {
                             Image(systemName: "cart")
                                 .foregroundColor(Color.brown)
@@ -58,9 +63,22 @@ struct ProductListView: View {
                                 .foregroundColor(Color.white)
                     }
                 }
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button{
+                        if nightMode == false{
+                            nightMode = true
+                        }else{
+                            nightMode = false
+                        }
+                    }label: {
+                        Text(nightMode ? "Light" : "Dark")
+                    }
+                }
             }
             Spacer()
-        }.environmentObject(cart).environmentObject(currency).environmentObject(currentCurrency)
+        }.environmentObject(cart).environmentObject(currency).environmentObject(currentCurrency).environmentObject(networkManager)
+            .environment(\.colorScheme, nightMode ? .dark : .light)
+        .navigationBarHidden(true)
     }
 }
 

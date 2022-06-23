@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CartSummaryRowView: View {
     @EnvironmentObject var currentCurrency: CurrencyViewModel
-    @EnvironmentObject var cart: CartViewModel
-    @State var currency: Currency?
     @Binding var cartProduct: Cart
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
@@ -39,6 +37,6 @@ struct CartSummaryRowView: View {
 
 struct CartSummaryRowView_Previews: PreviewProvider {
     static var previews: some View {
-        CartSummaryView()
+        CartSummaryView(nightMode: .constant(true))
     }
 }

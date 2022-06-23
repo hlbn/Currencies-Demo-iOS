@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct CurrencyChanger_DemoApp: App {
+    @ObservedObject var networkManager = NetworkManager()
     var body: some Scene {
         WindowGroup {
+            if networkManager.isConnected == false{
+                NoConnection()
+            }else{
             ProductListView(cart: CartViewModel())
+            }
         }
     }
 }

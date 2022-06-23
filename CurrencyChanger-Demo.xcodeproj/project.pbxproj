@@ -25,6 +25,9 @@
 		E4C749F42852284100164628 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F32852284100164628 /* ProductListView.swift */; };
 		E4C749F62852357F00164628 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F52852357F00164628 /* ProductList.swift */; };
 		E4C749F8285237A700164628 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C749F7285237A700164628 /* Products.swift */; };
+		E4EC2F482862B55D00B2F265 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC2F472862B55D00B2F265 /* Errors.swift */; };
+		E4EC2F4A2863660000B2F265 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC2F492863660000B2F265 /* NetworkManager.swift */; };
+		E4EC2F4D2863686F00B2F265 /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC2F4C2863686F00B2F265 /* NoConnectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +50,9 @@
 		E4C749F32852284100164628 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
 		E4C749F52852357F00164628 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		E4C749F7285237A700164628 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		E4EC2F472862B55D00B2F265 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		E4EC2F492863660000B2F265 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E4EC2F4C2863686F00B2F265 /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		E4C749EC285223E900164628 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E4EC2F4B2863685D00B2F265 /* ConnectionView */,
 				E41C05822858DD7A00E61AC1 /* ProductListView */,
 				E41C05832858DD8900E61AC1 /* CartView */,
 				E4C749DE285221A600164628 /* CurrencyChanger_DemoApp.swift */,
@@ -143,6 +150,7 @@
 			children = (
 				E4C749F52852357F00164628 /* ProductList.swift */,
 				E4175EDF285A94A8008D4149 /* CurrencyAPI.swift */,
+				E4EC2F492863660000B2F265 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -150,11 +158,20 @@
 		E4C749F0285227D700164628 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4EC2F472862B55D00B2F265 /* Errors.swift */,
 				E4C749F7285237A700164628 /* Products.swift */,
 				E4898D3E285645210067F7DE /* Cart.swift */,
 				E4175EDD285A9122008D4149 /* Currency.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E4EC2F4B2863685D00B2F265 /* ConnectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E4EC2F4C2863686F00B2F265 /* NoConnectionView.swift */,
+			);
+			path = ConnectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4EC2F4A2863660000B2F265 /* NetworkManager.swift in Sources */,
 				E4175EE0285A94A8008D4149 /* CurrencyAPI.swift in Sources */,
 				E4C749F62852357F00164628 /* ProductList.swift in Sources */,
 				E44EEFE22857CB9A0077F6D9 /* CartRowView.swift in Sources */,
@@ -235,11 +253,13 @@
 				E4C749F8285237A700164628 /* Products.swift in Sources */,
 				E4A4CAE728609F97001086F9 /* ButtonView.swift in Sources */,
 				E4898D41285646870067F7DE /* CartViewModel.swift in Sources */,
+				E4EC2F4D2863686F00B2F265 /* NoConnectionView.swift in Sources */,
 				E4576056285A49A700FD8C7C /* PriceSummaryPanelView.swift in Sources */,
 				E4175EDE285A9122008D4149 /* Currency.swift in Sources */,
 				E41C05812858DAB100E61AC1 /* ProductListRow.swift in Sources */,
 				E4898D3F285645210067F7DE /* Cart.swift in Sources */,
 				E4C749F42852284100164628 /* ProductListView.swift in Sources */,
+				E4EC2F482862B55D00B2F265 /* Errors.swift in Sources */,
 				E4A4CAEA2860D55B001086F9 /* CartSummaryView.swift in Sources */,
 				E473CC072860EBE100E595CB /* CartSummaryRowView.swift in Sources */,
 				E4C749DF285221A600164628 /* CurrencyChanger_DemoApp.swift in Sources */,

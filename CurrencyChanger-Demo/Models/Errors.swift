@@ -14,7 +14,7 @@ enum AppError: Error, LocalizedError {
         switch self {
             
         case .currencyError:
-            return NSLocalizedString("Could not change currency, please try to reload your app, if problem remains contact support", comment: "")
+            return NSLocalizedString("Could not change currency, please try to reload your app, if problem remains contact support(Pravdepodobne došiel povolený počet API callov pre free subscription, kontaktujte ma)", comment: "")
         }
     }
 }

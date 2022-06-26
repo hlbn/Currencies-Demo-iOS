@@ -11,7 +11,8 @@
 		E4175EE0285A94A8008D4149 /* CurrencyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4175EDF285A94A8008D4149 /* CurrencyAPI.swift */; };
 		E4175EE2285B78DB008D4149 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4175EE1285B78DB008D4149 /* CurrencyViewModel.swift */; };
 		E41C05812858DAB100E61AC1 /* ProductListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41C05802858DAB100E61AC1 /* ProductListRow.swift */; };
-		E4469B982867DF2B008173E7 /* CurrencyChanger_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4469B972867DF2B008173E7 /* CurrencyChanger_DemoTests.swift */; };
+		E4469B982867DF2B008173E7 /* ProductTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4469B972867DF2B008173E7 /* ProductTestCase.swift */; };
+		E4469B9F2867E48C008173E7 /* CartTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4469B9E2867E48C008173E7 /* CartTestCase.swift */; };
 		E44EEFDE2857BAD80077F6D9 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EEFDD2857BAD80077F6D9 /* CartView.swift */; };
 		E44EEFE22857CB9A0077F6D9 /* CartRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EEFE12857CB9A0077F6D9 /* CartRowView.swift */; };
 		E4576056285A49A700FD8C7C /* PriceSummaryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4576055285A49A700FD8C7C /* PriceSummaryPanelView.swift */; };
@@ -47,7 +48,8 @@
 		E4175EE1285B78DB008D4149 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		E41C05802858DAB100E61AC1 /* ProductListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListRow.swift; sourceTree = "<group>"; };
 		E4469B952867DF2B008173E7 /* CurrencyChanger-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CurrencyChanger-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4469B972867DF2B008173E7 /* CurrencyChanger_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyChanger_DemoTests.swift; sourceTree = "<group>"; };
+		E4469B972867DF2B008173E7 /* ProductTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTestCase.swift; sourceTree = "<group>"; };
+		E4469B9E2867E48C008173E7 /* CartTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTestCase.swift; sourceTree = "<group>"; };
 		E44EEFDD2857BAD80077F6D9 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		E44EEFE12857CB9A0077F6D9 /* CartRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRowView.swift; sourceTree = "<group>"; };
 		E4576055285A49A700FD8C7C /* PriceSummaryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceSummaryPanelView.swift; sourceTree = "<group>"; };
@@ -111,7 +113,8 @@
 		E4469B962867DF2B008173E7 /* CurrencyChanger-DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4469B972867DF2B008173E7 /* CurrencyChanger_DemoTests.swift */,
+				E4469B972867DF2B008173E7 /* ProductTestCase.swift */,
+				E4469B9E2867E48C008173E7 /* CartTestCase.swift */,
 			);
 			path = "CurrencyChanger-DemoTests";
 			sourceTree = "<group>";
@@ -304,7 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4469B982867DF2B008173E7 /* CurrencyChanger_DemoTests.swift in Sources */,
+				E4469B982867DF2B008173E7 /* ProductTestCase.swift in Sources */,
+				E4469B9F2867E48C008173E7 /* CartTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
